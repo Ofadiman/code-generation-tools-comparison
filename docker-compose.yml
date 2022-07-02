@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  api:
+    image: 'docker.io/library/node:16.13.0-buster'
+    ports:
+      - '3000:3000'
+    command: 'yarn nest start --watch'
+    user: 'node'
+    environment:
+      NODE_ENV: development
+    volumes:
+      - './:/home/node/code-generation-tools-comparison'
+    working_dir: '/home/node/code-generation-tools-comparison'
+  database:
+    ports:
+      - '27017:27017'
+    image: 'docker.io/library/mongo:4.2.21-bionic'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password

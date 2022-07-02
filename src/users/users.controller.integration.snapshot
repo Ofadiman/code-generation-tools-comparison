@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UsersController change email should change email 1`] = `
+Object {
+  "_id": Any<String>,
+  "createdAt": Any<String>,
+  "email": "Hayden.Zieme12@hotmail.com",
+  "firstName": "Hayden",
+  "lastName": "Zieme",
+  "passwordHash": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+  "updatedAt": Any<String>,
+}
+`;
+
+exports[`UsersController change email should throw an error when new email already exist in the database 1`] = `
+Object {
+  "error": "Conflict",
+  "message": "Email Marco_Volkman@yahoo.com is already in use.",
+  "statusCode": 409,
+}
+`;
+
+exports[`UsersController change email should throw error when user does not exist 1`] = `
+Object {
+  "error": "Not Found",
+  "message": "User with id 62c0521452e407761f19f258 not found.",
+  "statusCode": 404,
+}
+`;
+
+exports[`UsersController get user by id should get user by id 1`] = `
+Object {
+  "_id": Any<String>,
+  "createdAt": Any<String>,
+  "email": "Hayden.Zieme12@hotmail.com",
+  "firstName": "Hayden",
+  "lastName": "Zieme",
+  "passwordHash": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+  "updatedAt": Any<String>,
+}
+`;
+
+exports[`UsersController get user by id should throw error when user does not exist 1`] = `
+Object {
+  "error": "Not Found",
+  "message": "User with id 62c0516f8af7997e327bfa91 not found.",
+  "statusCode": 404,
+}
+`;
+
+exports[`UsersController register user should create user 1`] = `
+Object {
+  "_id": Any<String>,
+  "createdAt": Any<String>,
+  "email": "szymon.jaworski@gmail.com",
+  "firstName": "Szymon",
+  "lastName": "Jaworski",
+  "passwordHash": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+  "updatedAt": Any<String>,
+}
+`;
+
+exports[`UsersController register user should throw conflict error when user with send email already exists 1`] = `
+Object {
+  "error": "Conflict",
+  "message": "Email Hayden.Zieme12@hotmail.com is already in use.",
+  "statusCode": 409,
+}
+`;

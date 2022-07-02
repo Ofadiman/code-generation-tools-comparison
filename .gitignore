@@ -1,0 +1,23 @@
+# Ignore everything by default
+/*
+
+# Files
+!.gitignore
+!.prettierignore
+!.prettierrc.js
+!Makefile
+!README.md
+!docker-compose.yml
+!jest.all.config.js
+!jest.integration.config.js
+!jest.setup.js
+!jest.snapshot-resolver.js
+!jest.unit.config.js
+!nest-cli.json
+!package.json
+!tsconfig.build.json
+!tsconfig.json
+!yarn.lock
+
+# Directories
+!/src
