@@ -8,25 +8,25 @@ import { faker } from '@faker-js/faker'
 import { createModelMock, execute, MockedModel } from '@test-utils'
 import { MethodArgs } from '@types'
 
+let usersService: UsersService
+let userModel: MockedModel
+
+beforeEach(async () => {
+  const testingModule: TestingModule = await Test.createTestingModule({
+    providers: [
+      UsersService,
+      {
+        provide: getModelToken(User.name),
+        useValue: createModelMock(),
+      },
+    ],
+  }).compile()
+
+  usersService = testingModule.get<UsersService>(UsersService)
+  userModel = testingModule.get(getModelToken(User.name))
+})
+
 describe('UsersService', () => {
-  let usersService: UsersService
-  let userModel: MockedModel
-
-  beforeEach(async () => {
-    const testingModule: TestingModule = await Test.createTestingModule({
-      providers: [
-        UsersService,
-        {
-          provide: getModelToken(User.name),
-          useValue: createModelMock(),
-        },
-      ],
-    }).compile()
-
-    usersService = testingModule.get<UsersService>(UsersService)
-    userModel = testingModule.get(getModelToken(User.name))
-  })
-
   describe('register', () => {
     const registerArgs: MethodArgs<typeof UsersService, 'register'> = {
       firstName: 'John',

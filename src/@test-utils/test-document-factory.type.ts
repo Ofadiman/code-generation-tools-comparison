@@ -6,4 +6,4 @@ export type TestDocumentFields<DocumentFields extends { _id: string }> = Partial
 
 export type TestDocumentFactory<DocumentFields extends { _id: string }> = (
   fields?: Partial<TestDocumentFields<DocumentFields>>,
-) => TestDocumentFields<DocumentFields>
+) => Required<TestDocumentFields<DocumentFields>>

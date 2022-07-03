@@ -3,43 +3,43 @@ import { UsersController } from './users.controller'
 import { AppModule } from '../app.module'
 import { HttpStatus, INestApplication } from '@nestjs/common'
 import { Model } from 'mongoose'
-import * as supertest from 'supertest'
-import { UsersControllerRegisterRequestBodyDto } from './dto/users.register.dto'
+import supertest from 'supertest'
 import { User } from './user.schema'
 import { getModelToken } from '@nestjs/mongoose'
 import { UsersControllerChangeEmailRequestBodyDto } from './dto/users.change-email.dto'
 import { createTestUser } from './user.mocks'
+import { UsersControllerRegisterRequestBodyDto } from './dto/users.register.dto'
+
+let nestApplication: INestApplication
+let userModel: Model<User>
+
+const firstUser = createTestUser()
+const secondUser = createTestUser()
+
+beforeAll(async () => {
+  const testingModule: TestingModule = await Test.createTestingModule({
+    imports: [AppModule],
+  }).compile()
+
+  nestApplication = testingModule.createNestApplication()
+  await nestApplication.init()
+  userModel = nestApplication.get(getModelToken(User.name))
+})
+
+beforeEach(async () => {
+  await userModel.create(firstUser)
+  await userModel.create(secondUser)
+})
+
+afterEach(async () => {
+  await userModel.deleteMany({})
+})
+
+afterAll(async () => {
+  await nestApplication.close()
+})
 
 describe('UsersController', () => {
-  let nestApplication: INestApplication
-  let userModel: Model<User>
-
-  const firstUser = createTestUser()
-  const secondUser = createTestUser()
-
-  beforeAll(async () => {
-    const testingModule: TestingModule = await Test.createTestingModule({
-      imports: [AppModule],
-    }).compile()
-
-    nestApplication = testingModule.createNestApplication()
-    await nestApplication.init()
-    userModel = nestApplication.get(getModelToken(User.name))
-  })
-
-  beforeEach(async () => {
-    await userModel.create(firstUser)
-    await userModel.create(secondUser)
-  })
-
-  afterEach(async () => {
-    await userModel.deleteMany({})
-  })
-
-  afterAll(async () => {
-    await nestApplication.close()
-  })
-
   describe('register user', () => {
     it('should throw conflict error when user with send email already exists', async () => {
       const body: UsersControllerRegisterRequestBodyDto = {

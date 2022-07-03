@@ -11,7 +11,7 @@ export const createTestUser: TestDocumentFactory<UserDocumentFields> = (fields) 
   const email = faker.internet.email(firstName, lastName)
   const passwordHash = createHash('sha256').update('password').digest('hex')
 
-  const defaultUserDocument: TestDocumentFields<UserDocumentFields> = {
+  const defaultUserDocument: Required<TestDocumentFields<UserDocumentFields>> = {
     _id: new mongoose.Types.ObjectId(faker.database.mongodbObjectId()),
     firstName,
     lastName,

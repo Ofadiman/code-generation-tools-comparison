@@ -13,7 +13,7 @@ export const constantGenerator: Parameters<NodePlopAPI['setGenerator']>[1] = {
 
         const isKebabCase = kebabCaseValue === value
         if (!isKebabCase) {
-          return `Constant name must be kebab-case.`
+          return `Constant name must be in kebab-case.`
         }
 
         return true
@@ -23,13 +23,13 @@ export const constantGenerator: Parameters<NodePlopAPI['setGenerator']>[1] = {
   actions: [
     {
       type: 'add',
-      path: 'src/@constants/{{name}}.constants.ts',
+      path: 'src/@constants/{{ name }}.constants.ts',
       template: 'export const {{ constantCase name }} = {}',
     },
     {
       type: 'append',
       path: 'src/@constants/index.ts',
-      template: `export * from './{{name}}.constants'\n`,
+      template: `export * from './{{ name }}.constants'\n`,
       separator: '',
     },
   ],

@@ -1,0 +1,1 @@
+export default `import { {{ pascalCase module }}Controller{{ pascalCase name }}RequestBodyDto, {{ pascalCase module }}Controller{{ pascalCase name }}ResponseBodyDto } from './dto/{{ module }}.{{ name }}.dto'`
