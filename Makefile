@@ -57,3 +57,6 @@ test/integration:
 
 test/all:
 	NODE_ENV=test && yarn jest --config jest.all.config.js --watch --verbose --runInBand
+
+codegen/plop:
+	yarn plop

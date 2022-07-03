@@ -18,3 +18,10 @@ In addition to the minimum requirements, I also have a few requirements that are
 3. The tool should allow to configure user input validation (e.g., require input to be `kebab-case`).
 4. The tool should allow to transform user input (e.g., convert inputs in `kebab-case` to `PascalCase`).
 5. The tool should allow to run arbitrary actions before or after the code generation (e.g., reformat files with prettier, apply eslint formatting rules).
+
+# Resources
+
+- [Handlebars engine documentation.](https://handlebarsjs.com/guide/)
+- [Inquirer library documentation.](https://github.com/SBoudrias/Inquirer.js)
+- [Plop library documentation.](https://plopjs.com/documentation/#getting-started)
+- [Website used to test regular expressions.](https://regexr.com/)

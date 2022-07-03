@@ -15,9 +15,11 @@
 !jest.unit.config.js
 !nest-cli.json
 !package.json
+!plopfile.ts
 !tsconfig.build.json
 !tsconfig.json
 !yarn.lock
 
 # Directories
 !/src
+!/plop
