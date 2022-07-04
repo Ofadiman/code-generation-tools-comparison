@@ -31,7 +31,6 @@ import { ENVIRONMENT_VARIABLES } from '@constants'
       provide: APP_PIPE,
       useValue: new ValidationPipe({
         forbidNonWhitelisted: true,
-        forbidUnknownValues: true,
         transform: true,
         whitelist: true,
       }),
