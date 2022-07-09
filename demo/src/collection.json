@@ -1,0 +1,15 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "demo": {
+      "description": "Run a demo schematics.",
+      "factory": "./demo/index#demo",
+      "schema": "./demo/schema.json"
+    },
+    "constant": {
+      "description": "Create a constant.",
+      "factory": "./constant/index#constant",
+      "schema": "./constant/schema.json"
+    }
+  }
+}

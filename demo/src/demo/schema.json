@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "Demo",
+  "title": "Demo schema.",
+  "type": "object",
+  "properties": {
+    "string": {
+      "type": "string",
+      "description": "The string value used in demo.",
+      "default": "hello-world",
+      "x-prompt": "This questions prompts to input a string:"
+    },
+    "number": {
+      "type": "number",
+      "description": "The number value used in demo.",
+      "default": 1.5,
+      "x-prompt": "This questions prompts to input a number:"
+    },
+    "boolean": {
+      "type": "boolean",
+      "description": "The boolean value used in demo.",
+      "default": false,
+      "x-prompt": "This question prompts to input a boolean:"
+    },
+    "list": {
+      "type": "string",
+      "enum": ["foo", "bar"],
+      "description": "The enum value used in demo.",
+      "default": "bar",
+      "x-prompt": "This question prompts to pick an item from list declared in schematics:"
+    },
+    "long-list": {
+      "description": "The enum value used in demo picked from list written using the long syntax.",
+      "type": "string",
+      "default": "css",
+      "enum": ["css", "scss", "sass", "less"],
+      "x-prompt": {
+        "message": "This question prompts to pick an item from list written in the long syntax declared in schematics:",
+        "type": "list",
+        "items": [
+          { "value": "css", "label": "CSS" },
+          {
+            "value": "scss",
+            "label": "SCSS   [ https://sass-lang.com/documentation/syntax#scss                ]"
+          },
+          {
+            "value": "sass",
+            "label": "Sass   [ https://sass-lang.com/documentation/syntax#the-indented-syntax ]"
+          },
+          {
+            "value": "less",
+            "label": "Less   [ http://lesscss.org/                                            ]"
+          }
+        ]
+      }
+    }
+  },
+  "required": ["string", "boolean", "list", "number", "long-list"]
+}

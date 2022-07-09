@@ -23,6 +23,8 @@
     "validator": "^13.7.0"
   },
   "devDependencies": {
+    "@angular-devkit/schematics-cli": "^14.0.5",
+    "@angular/cli": "^14.0.5",
     "@faker-js/faker": "^7.3.0",
     "@nestjs/cli": "^8.0.0",
     "@nestjs/schematics": "^8.0.0",

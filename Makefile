@@ -60,3 +60,7 @@ test/all:
 
 codegen/plop:
 	yarn plop
+
+codegen/schematics:
+	(cd ./demo && npm run build)
+	yarn schematics ./demo:constant --debug=false
