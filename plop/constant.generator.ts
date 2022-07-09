@@ -24,7 +24,7 @@ export const constantGenerator: Parameters<NodePlopAPI['setGenerator']>[1] = {
     {
       type: 'add',
       path: 'src/@constants/{{ name }}.constants.ts',
-      template: 'export const {{ constantCase name }} = {}',
+      template: 'export const {{ constantCase name }} = {}\n',
     },
     {
       type: 'append',
