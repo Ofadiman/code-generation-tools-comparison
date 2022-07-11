@@ -55,12 +55,12 @@ Let's address these challenges using the `plop` generator:
 | ---------------------------------------- | -------------------------------------------------------------- | ------------------------------------------------------- | -------------------------------- |
 | Integration with existing project        | `plopfile.ts` in project root, template files wherever we want | everything in `_templates` directory in project root    | separate package in project root |
 | Generate files based on templates        | ✅ (handlebars)                                                | ✅ (ejs)                                                | ✅ (custom)                      |
-| Process already existing files           | ✅ (regex, AST)                                                | ✅ (regex)                                              | ✅ (regex, AST)                  |
+| Process already existing files           | ✅ (regex, AST)                                                | ✅ (regex, AST via shell script)                        | ✅ (regex, AST)                  |
 | Run generators using interactive prompts | ✅ ([inquirer](https://www.npmjs.com/package/inquirer))        | ✅ ([enquirer](https://www.npmjs.com/package/enquirer)) | ✅ (custom)                      |
 | Run generators using CLI                 | ✅                                                             | ✅                                                      | ✅                               |
 | Validate user input                      | during prompts                                                 | during prompts                                          | after prompts                    |
 | Transform user input                     | ✅ (10 built-in helpers)                                       | ✅ (32 built-in helpers)                                | ✅                               |
-| Run arbitrary code                       | before, after                                                  | after                                                   | before, after                    |
+| Run arbitrary code                       | ✅ (custom action function)                                    | ✅ (shell script in template)                           | ✅ (context tasks)               |
 | Write unit tests                         | ❌                                                             | ❌                                                      | ✅                               |
 | Declare custom helpers                   | ✅                                                             | ❌                                                      | ✅                               |
 | Documentation quality (**SUBJECTIVE**)   | 👍                                                             | 👍                                                      | 🙈 🙉 🙊                         |
