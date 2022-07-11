@@ -1,5 +1,9 @@
 import { kebabCase } from 'lodash'
-import { NodePlopAPI } from 'plop'
+import { NodePlopAPI, CustomActionFunction } from 'plop'
+
+const customActionFunction: CustomActionFunction = async (_answers, _config, _plopfileApi) => {
+  return 'Custom function executed successfully.'
+}
 
 export const constantGenerator: Parameters<NodePlopAPI['setGenerator']>[1] = {
   description: 'Generate constant value available in the whole application.',
@@ -32,5 +36,6 @@ export const constantGenerator: Parameters<NodePlopAPI['setGenerator']>[1] = {
       template: `export * from './{{ name }}.constants'\n`,
       separator: '',
     },
+    customActionFunction,
   ],
 }
