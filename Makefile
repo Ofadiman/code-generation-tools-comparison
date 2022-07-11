@@ -64,3 +64,7 @@ codegen/plop:
 codegen/schematics:
 	(cd ./demo && npm run build)
 	yarn schematics ./demo:constant --debug=false
+
+codegen/schematics/pass_arguments_directly:
+	(cd ./demo && npm run build)
+	yarn schematics ./demo:constant --debug=false --name ble
