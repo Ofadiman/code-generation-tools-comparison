@@ -1,6 +1,5 @@
 import { NodePlopAPI } from 'plop'
 import { kebabCase } from 'lodash'
-import { readdirSync } from 'fs'
 
 export const functionalityGenerator: Parameters<NodePlopAPI['setGenerator']>[1] = {
   description: 'Generate a new functionality.',
@@ -23,24 +22,23 @@ export const functionalityGenerator: Parameters<NodePlopAPI['setGenerator']>[1] 
     {
       type: 'list',
       name: 'module',
-      choices: () => {
-        const srcContent = readdirSync('./src', { withFileTypes: true })
-        const moduleDirectories = srcContent
-          .filter((file) => {
-            return file.isDirectory()
-          })
-          .filter((file) => {
-            return !file.name.startsWith('@')
-          })
-          .map((directory) => directory.name)
-
-        return moduleDirectories
-      },
+      choices: [
+        {
+          name: 'users',
+          value: 'users',
+        },
+      ],
     },
     {
       type: 'list',
       name: 'method',
-      choices: ['Get', 'Post', 'Patch', 'Put', 'Delete'],
+      choices: [
+        { name: 'get', value: 'get' },
+        { name: 'post', value: 'post' },
+        { name: 'patch', value: 'patch' },
+        { name: 'put', value: 'put' },
+        { name: 'delete', value: 'delete' },
+      ],
     },
     {
       type: 'input',
@@ -70,7 +68,7 @@ export class {{ pascalCase module}}Controller{{ pascalCase name }}ResponseBodyDt
       type: 'append',
       path: 'src/{{ module }}/{{ module }}.controller.ts',
       template: `
-  @{{ method }}('{{ path }}')
+  @{{ pascalCase method }}('{{ path }}')
   public async {{ camelCase name }}(@Body() body: {{ pascalCase module }}Controller{{ pascalCase name }}RequestBodyDto): Promise<{{ pascalCase module }}Controller{{ pascalCase name }}ResponseBodyDto> {
     return this.{{ camelCase module }}Service.{{ camelCase name }}(body)
   }`,
