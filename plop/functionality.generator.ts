@@ -53,7 +53,7 @@ export const functionalityGenerator: Parameters<NodePlopAPI['setGenerator']>[1] 
     {
       type: 'add',
       path: 'src/{{ module }}/dto/users.{{ name }}.dto.ts',
-      template: `export class {{ pascalCase module}}Controller{{ pascalCase name }}RequestBodyDto {}
+      template: `export class {{ pascalCase module }}Controller{{ pascalCase name }}RequestBodyDto {}
 
 export class {{ pascalCase module}}Controller{{ pascalCase name }}ResponseBodyDto {}
 `,

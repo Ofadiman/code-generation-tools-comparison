@@ -5,6 +5,9 @@
   "author": {
     "name": "Szymon Jaworski"
   },
+  "scripts": {
+    "plop": "plop"
+  },
   "private": true,
   "license": "MIT",
   "dependencies": {

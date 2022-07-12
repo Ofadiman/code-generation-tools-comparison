@@ -29,15 +29,15 @@ We have several code generation tools available on the market, and I compared so
 
 Let's imagine the following situations:
 
-1. We want to create a file where we will store regular expressions for different date formats used in the application.
+1. We want to create a utility function which should be available in the whole application.
 2. We want to add functionality in which the user will be able to change the password.
 3. We want to create a module for managing user profiles.
 
-Let's address these challenges using the `plop` generator:
+Let's address these challenges using the `plop` generator.
 
-1. Code generator options: `--name date-formats`.
-2. Code generator options: `--name change-password --module users --method patch --path change-password`.
-3. Code generator options: `--name user-profiles`.
+1. Generate code via CLI: `npm run plop function --name drop-database`.
+2. Generate code via CLI: `npm run plop functionality --name change-password --module users --method patch --path change-password`.
+3. Generate code via CLI: `npm run plop module --name user-profiles`.
 
 # What do I expect from a code generator?
 
