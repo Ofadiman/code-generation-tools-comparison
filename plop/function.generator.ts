@@ -7,7 +7,7 @@ export const functionGenerator: Parameters<NodePlopAPI['setGenerator']>[1] = {
     {
       type: 'input',
       name: 'name',
-      message: 'Constant name (kebab-case)',
+      message: 'Function name (kebab-case)',
       validate: (value: string) => {
         const kebabCaseValue = kebabCase(value)
 

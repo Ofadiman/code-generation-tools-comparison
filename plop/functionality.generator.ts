@@ -44,6 +44,16 @@ export const functionalityGenerator: Parameters<NodePlopAPI['setGenerator']>[1] 
       type: 'input',
       name: 'path',
       message: 'Rest API path (kebab-case)',
+      validate: (value: string) => {
+        const kebabCaseValue = kebabCase(value)
+
+        const isKebabCase = kebabCaseValue === value
+        if (!isKebabCase) {
+          return `Functionality name must be in kebab-case.`
+        }
+
+        return true
+      },
     },
   ],
   actions: [
